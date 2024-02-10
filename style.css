@@ -96,15 +96,16 @@ ul li {
     font-size: 1rem;
     font-weight: 200;
     border-color: #333;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 #container button:hover {
-    background-color: rgb(131, 242, 131);
+    color: white;
 }
 
 #container button a {
     color: #fff;
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 /* #Title {
