@@ -41,7 +41,8 @@ ul li {
 
 .main {
     height: 100vh;
-    background: url('./background_todo.jpg') no-repeat center center/cover;
+    background: url('./light-background.jpg') no-repeat center center/cover;
+    /* background-size: contain; */
 }
 
 .main::before {
@@ -87,12 +88,18 @@ ul li {
 }
 
 #container button {
-    height: 2rem;
-    width: 10rem;
-    border-radius: 15%;
-    background-color: green;
+    height: 3rem;
+    width: 8rem;
+    border-radius: 6000px;
+    object-fit: cover;
+    background-color: rgb(0, 125, 0);
     font-size: 1rem;
     font-weight: 200;
+    border-color: #333;
+}
+
+#container button:hover {
+    background-color: rgb(131, 242, 131);
 }
 
 #container button a {
@@ -118,3 +125,9 @@ ul li {
 #container .form {
     background-color: rgb(64, 255, 64);
 } */
+
+@media(min-height:600px)and (min-width:1000px) {
+    .main {
+        background-size: contain;
+    }
+}
