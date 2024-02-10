@@ -1,0 +1,13 @@
+#back {
+    /* background-color: black; */
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    padding: 2%;
+}
+
+#back a {
+    background-color: #e3e3e3;
+    color: black;
+    padding: 0px 20px;
+}

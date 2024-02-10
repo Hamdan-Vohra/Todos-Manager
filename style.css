@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+html,
+body {
+    font-family: 'sans-serif';
+    height: 100%;
+    width: 100%;
+    line-height: 1.5;
+    background-color: #f4f4f4;
+}
+
+;
+
+h1 {
+    font-weight: 300;
+}
+
+a {
+    color: #444;
+    text-decoration: none;
+}
+
+ul li {
+    text-decoration: none;
+}
+
+#logo {
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    position: relative;
+    height: 70px;
+}
+
+.main {
+    height: 100vh;
+    background: url('./background_todo.jpg') no-repeat center center/cover;
+}
+
+.main::before {
+    content: '';
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+#logo #logo-image img {
+    position: relative;
+    height: 3rem;
+}
+
+#logo-title span {
+    color: rgba(0, 148, 59, 0.691);
+}
+
+.main .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 40%;
+    margin-top: 30px;
+    padding: 50px 10px;
+    font-size: 40px;
+    font-weight: 100;
+    color: black;
+}
+
+
+#container {
+    padding: 70px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#container button {
+    height: 2rem;
+    width: 10rem;
+    border-radius: 15%;
+    background-color: green;
+    font-size: 1rem;
+    font-weight: 200;
+}
+
+#container button a {
+    color: #fff;
+    font-size: 1rem;
+}
+
+/* #Title {
+    min-width: 100vw;
+    padding: 5px;
+    text-align: center;
+    background: #c2c2c2;
+    height: 30px;
+}
+
+#container {
+    margin: auto;
+    padding: 15px 15px;
+    max-width: 3000px;
+    max-height: 1000px;
+}
+
+#container .form {
+    background-color: rgb(64, 255, 64);
+} */

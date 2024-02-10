@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./todo.css">
+    <title>Todo Webpage</title>
+</head>
+
+<body>
+    <h1>TODOS</h1>
+    <input type="text" id="search-text" placeholder="Filter Todos">
+    <div id="todos"></div>
+    <label for="">
+        <input type="checkbox" id="hide-completed">Hide Completed
+    </label>
+    <form action="" id="add-new-todo">
+        <input type="text" id="new-todo" name="title" placeholder="Enter new ToDo : ">
+        <input type="datetime-local" id="finish-time" name="duration" placeholder="Enter time for todo :">
+        <button type="submit" id="add">Add Todo</button>
+    </form>
+    <script src="Unique_Id.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment-with-locales.min.js"
+        integrity="sha512-4F1cxYdMiAW98oomSLaygEwmCnIP38pb4Kx70yQYqRwLVCs3DbRumfBq82T08g/4LJ/smbFGFpmeFlQgoDccgg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="Todo-functions.js"></script>
+    <script src="todo.js"></script>
+</body>
+
+</html>
