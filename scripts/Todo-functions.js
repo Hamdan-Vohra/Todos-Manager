@@ -2,11 +2,11 @@
 
 const getSavedTodo = function () {
     const todoJSON = localStorage.getItem('todos');
-    console.log(todoJSON);
-    if (todoJSON !== null) {
-        return JSON.parse(todoJSON);
+
+    try {
+        return todoJSON ? JSON.parse(todoJSON) : [];
     }
-    else {
+    catch (e) {
         return [];
     }
 
@@ -68,48 +68,47 @@ function RenderTodos(todoList, filter) {
 
 //Generating DOM element for todo-list
 const generateTodoDOM = function (todo) {
-    const TodoEl = document.createElement('div');//parent element
-
+    const TodoEl = document.createElement('label');//parent element
+    const containerEl = document.createElement('div');
     const chkbox = document.createElement('input');
-    const txt = document.createElement('a');
+    const txt = document.createElement('span');
     const btn = document.createElement('button');
-
-    // chkbox.type = 'checkbox';
+    //      SetUp todoElement
+    TodoEl.classList.add('list-item');
+    //          CheckBox
     chkbox.setAttribute('type', 'checkbox');
-    TodoEl.appendChild(chkbox);
-
-
+    containerEl.appendChild(chkbox);
     chkbox.checked = todo.isFinished
-    //adding event listener to each checkbox (it will update summary according it)
     chkbox.addEventListener('change', function () {
         toggleTodoCheckedStatus(todo.id);
         saveTodo(todos);
         RenderTodos(todos, filter);
     })
-
+    //              TextBox
     txt.setAttribute('href', `./todo-edit.html#${todo.id}`);
     txt.textContent = todo.task;
     const now = moment().format('YYYY-MM-DD HH:mm');
-    if (todo.durationTime < now && todo.durationTime != '') {
+    if (todo.durationTime != '' && todo.durationTime < now && !todo.isFinished) {
         setColor(txt, 'red');
     }
     else {
-        setColor(txt, 'purple');
+        setColor(txt, 'white');
     }
-    TodoEl.appendChild(txt);
+    containerEl.appendChild(txt);
+    //      Setup ContainerEl
+    containerEl.classList.add('list-item__container');
+    TodoEl.appendChild(containerEl);
 
+    //          Remove Button
+    btn.textContent = 'remove';
     setElementID(btn, 'remove');
-    btn.textContent = ' X ';
+    btn.classList.add('button', 'button-text');
     TodoEl.appendChild(btn);
-
-    //adding event listener to each removing button 
     btn.addEventListener('click', function () {
         RemoveTodo(todo.id);
         saveTodo(todos);
         RenderTodos(todos, filter);
     })
-
-    setElementID(TodoEl, 'todo-element');
     return TodoEl;
 }
 
@@ -117,7 +116,8 @@ const generateTodoDOM = function (todo) {
 //Generating DOM element for Summary
 const generateSummDOM = function (type, length) {
     const summary = document.createElement('h2');
-    summary.textContent = `You have ${length} Todos left`
+    summary.classList.add('list-title');
+    summary.textContent = `You have ${length} ${length !== 1 ? 'Todos' : 'Todo'} left`
     return summary;
 }
 
